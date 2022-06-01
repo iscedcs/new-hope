@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Document</title>
+          <style>
+               input[type="checkbox"]:checked + label{
+                    color:white;
+                    background-color: #0088cc;
+               }
+               input[type="radio"]:checked + label{
+                    color:white;
+                    background-color: #0088cc;
+               }
+               label{
+                    height: 90%;
+                    width: 90%;
+                    background-color: white;
+                    color: #0088cc;
+               }
+
+          </style>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+     </head>
+     <body>
+          <div>
+               <div class="container-fluid">
+                    <div class="row">
+                         <div class="col-sm-12 col-lg-8 py-4 px-2">
+                              <div class="border p-5">
+                                   <div class="text-center">
+                                        <h2>Complete Your Booking</h2>
+                                        <p>Great! Few details and we can complete your booking.</p>
+                                        <hr class="mt-3">
+                                   </div>
+                                   <div>
+                                        <h5>CHOOSE SERVICE TYPE</h5>
+                                        <select class="form-select" name="servicetype" id="servicetype">
+                                             <option value="regular">Regular</option>
+                                             <option value="deep-clean">Deep Clean</option>
+                                             <option value="moveout-movein">Move-Out/Move-in</option>
+                                        </select>
+                                        <hr class="mt-3">
+                                   </div>
+                              
+                                   <div class="mt-3">
+                                        <h5>TELL US ABOUT YOUR HOME</h5>
+                                        
+                                        <div>
+                                             <div class="row">
+                                                  <div class="col-sm">
+                                                       <select class="form-select" name="bedroom-no" id="bedroom-no">
+                                                            <option value="1-bedroom">1 Bedroom</option>
+                                                            <option value="2-bedrooms">2 Bedrooms</option>
+                                                            <option value="3-bedrooms">3 Bedrooms</option>
+                                                            <option value="4-bedrooms">4 Bedrooms</option>
+                                                            <option value="5-bedrooms">5 Bedrooms</option>
+                                                            <option value="6-bedrooms">6 Bedrooms</option>
+                                                       </select>
+                                                  </div>
+                                                  <div class="col-sm">
+                                                       <select class="form-select" name="kitchen-no" id="kitchen-no">
+                                                            <option value="1-kitchen">1 Kitchen</option>
+                                                            <option value="2-kitchens">2 Kitchens</option>
+                                                            <option value="3-kitchens">3 Kitchens</option>
+                                                       </select>
+                                                  </div>
+                                             </div>
+                                             <div class="pt-2">
+                                                  <select class="form-select" name="dirtiness" id="dirtiness">
+                                                       <option value="slightly-dirty">Slightly Dirty</option>
+                                                       <option value="pretty-dirty">Pretty Dirty</option>
+                                                       <option value="very-dirty">Very Dirty</option>
+                                                  </select>
+                                             </div>
+                                             <hr class="mt-3">
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                        <h5>ADD EXTRAS</h5>
+
+                                             <div class="row">
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-oven" name="inside-oven" value="Inside oven">
+                                                       <label class="border rounded py-3" for="inside-oven"> Oven<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       
+                                                       <input hidden type="checkbox" id="walls" name="walls" value="walls">
+                                                       <label class="border rounded py-3" for="walls"> Walls<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/86/97e07631962160936413b9eba4a61bfb59e3712a.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-window" name="inside-window" value="Inside window">
+                                                       <label class="border rounded py-3" for="inside-window"> Window<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/84/cec29b3bba1a5c5cf9dab61f678bd8c5e89a3f05.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-the-fridge" name="inside-the-fridge" value="Inside The Fridge">
+                                                       <label class="border rounded py-3" for="inside-the-fridge"> Fridge<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/87/8bccba665a2f78041dee389ad5ee6838571c319e.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-cabinets" name="inside-cabinets" value="Inside Cabinets">
+                                                       <label class="border rounded py-3" for="inside-cabinets"> Cabinets<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/85/5210f0970d1772f03dc1c29a3709d7eed3c43f6f.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="organization" name="organization" value="Organization">
+                                                       <label class="border rounded py-3" for="organization"> Organization<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/88/7ac32951580c89d346f8e976d757aedff5e8d145.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-dishwasher" name="inside-dishwasher" value="Inside Dishwasher">
+                                                       <label class="border rounded py-3" for="inside-dishwasher"> Dishwasher<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/89/8b94c4f6559cc22536e2bcac20e7f9bf537f3725.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-garage" name="inside-garage" value="Inside Garage">
+                                                       <label class="border rounded py-3" for="inside-garage"> Garage<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/91/4010ac71119815eb9ad3c8d6107ccf473b57fc97.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="microwave" name="microwave" value="Microwave">
+                                                       <label class="border rounded py-3" for="microwave"> Microwave<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/90/1e0f2757ea854d27fc5e7c3e89e9a26370082658.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="laundry" name="laundry" value="Laundry">
+                                                       <label class="border rounded py-3" for="laundry"> Laundry<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="blinds" name="blinds" value="Blinds">
+                                                       <label class="border rounded py-3" for="blinds"> Blinds<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/16/c9a367dc36e7bc7a23c030457722acdae8507b56.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-4 col-6 text-center">
+                                                       <input hidden type="checkbox" id="inside-washer-dryer" name="inside-washer-dryer" value="Inside Washer/Dryer">
+                                                       <label class="border rounded py-3" for="inside-washer-dryer"> Washer/Dryer<br>
+                                                            <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/48/fc6f534756fdbd652be16b0d121537197046ee9b.png" alt="xxx">
+                                                       </label>
+                                                  </div>
+                                             </div>
+                                             <hr class="mt-3">
+                                        </div>
+                                   </div>
+                              
+                                   <div>
+                                        <h5>WHEN WOULD YOU LIKE US TO COME?</h5>
+                                        <p>
+                                             Choose the date and arrival window that works for you. If you need a last-minute appointment give us a call at (206) 294-9654. *Please note: Your arrival window is the block of time in which the cleaners may arrive.
+                                        </p>
+                                        <div class="row">
+                                             <div class="col-sm pb-2">
+                                                  <input class="form-control" type="date" name="arrivaldate" id="arrivaldate">
+                                             </div>
+                                             <div class="col-sm pb-2">
+                                                  <select class="form-select" name="clean-time" id="clean-time">
+                                                       <option value="08:00AM-11:00AM">08:00AM-11:00AM</option>
+                                                       <option value="11:00AM-02:00PM">11:00AM-02:00PM</option>
+                                                       <option value="02:00PM-05:00PM">02:00PM-05:00PM</option>
+                                                  </select>
+                                             </div>
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                              
+                                   <div>
+                                        <h5>HOW OFTEN</h5>
+                                        <p>
+                                             It's all about matching you with the perfect clean for your home. Scheduling is flexible. Cancel or reschedule anytime. Discounts are applied based on selection.
+                                        </p>
+                                        <div class="row text-center">
+                                             <div class="col-sm pb-2">
+                                                  <input type="radio" id="one-time" name="how_often" value="Bike" hidden>
+                                                  <label class="rounded border p-2" for="one-time"> One Time</label><br>
+                                             </div>
+                                             <div class="col-sm pb-2">
+                                                  <input type="radio" id="weekly" name="how_often" value="Car" hidden>
+                                                  <label class="rounded border p-2" for="weekly"> Weekly</label><br>
+                                             </div>
+                                             <div class="col-sm pb-2">
+                                                  <input type="radio" id="biweekly" name="how_often" value="Boat" hidden>
+                                                  <label class="rounded border p-2" for="biweekly"> Biweekly</label><br>
+                                             </div>
+                                             <div class="col-sm pb-2">
+                                                  <input type="radio" id="monthly" name="how_often" value="Boat" hidden>
+                                                  <label class="rounded border p-2" for="monthly"> Monthly</label>
+                                             </div>
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                              
+                                   <div>
+                                        <h5>WHO YOU ARE</h5>
+                                        <p>
+                                             This information will be used to contact you about your service.
+                                        </p>
+                                        <div>
+                                             <div class="row">
+                                                  <div class="col-sm-6">
+                                                       <input class="form-control mb-2" type="text" name="fname" id="fname" placeholder="First Name">
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                       <input class="form-control mb-2" type="text" name="lname" id="lname" placeholder="Last Name">
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                       <input class="form-control mb-2" type="text" name="email" id="email" placeholder="Email">
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                       <input class="form-control mb-2" type="text" name="phone" id="phone" placeholder="Phone">
+                                                  </div>
+                                             </div>
+                                             <hr class="mt-3">
+                                        </div>
+                                   </div>
+                              
+                                   <div>
+                                        <h5>ADDRESS</h5>
+                                        <p>
+                                             Where would you like us to clean?
+                                        </p>
+                                        <div class="row">
+                                             <div class="col-sm-9 pb-2">
+                                                  <input class="form-control" type="text" name="address" id="address" placeholder="Address">
+                                             </div>
+                                             <div class="col-sm-3 pb-2">
+                                                  <input class="form-control" type="text" name="apt" id="apt" placeholder="Apt/Suite #">
+                                             </div>
+                                             <div class="col-sm-6 pb-2">
+                                                  <input class="form-control" type="text" name="city" id="city" placeholder="City">
+                                             </div>
+                                             <div class="col-sm-3 pb-2">
+                                                  <select class="form-select" name="state" id="state">
+                                                       <option value="">Abia</option>
+                                                       <option value="">Adamawa</option>
+                                                       <option value="">Akwa Ibom</option>
+                                                       <option value="">Anambara</option>
+                                                  </select>
+                                             </div>
+                                             <div class="col-sm-3 pb-2">
+                                                  <input class="form-control" type="text" name="zip" id="zip" placeholder="Zip Code">
+                                             </div>
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                              
+                                   <div>
+                                        <h5>DISCOUNT CODE</h5>
+                                        <div class="row">
+                                             <div class="col-sm-9">
+                                                  <input class="form-control" type="text" name="discount-code" id="discout-code" placeholder="Discount Code">
+                                             </div>
+                                             <div class="col-sm-3 d-grid">
+                                                  <button class="btn btn-primary" type="button">Apply</button>
+                                             </div>
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                              
+                                   <div>
+                                        <h5>Comments and Special Instructions</h5>
+                                        <div>
+                                             <textarea class="form-control" name="special-instructions" id="special-instructions" placeholder="Special Instructions: Is there anything we should know? Example: the gate code is 1234 or look out for the dog." cols="30" rows="5"></textarea>
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                                   
+                                   <div>
+                                        <h5>Add Card Details</h5>
+                                        <div class="pb-2 input-group">
+                                             <span class="input-group-text"><i class="fa-regular fa-credit-card"></i></span>
+                                             <input type="text" aria-label="First name" class="form-control" placeholder="0000-0000-0000-0000" >
+                                        </div>
+                                        
+                                        <div class="pb-2 input-group">
+                                             <span class="input-group-text"><i class="fa-regular fa-clock"></i></span>
+                                             <input type="text" aria-label="First name" class="form-control" placeholder="12/34" >
+                                             <span class="input-group-text">CVV</span>
+                                             <input type="text" aria-label="Last name" class="form-control" placeholder="000" >
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+
+                                   <div class="d-lg-none">
+                                        <h4>Booking Summary</h4>
+                                        <div>
+                                             <ul class="list-group list-group-flush">
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                            <div><i class="fa-solid fa-house-chimney"></i><span> 6 Bedrooms</span></div>
+                                                            <div>#1,500</div>
+                                                       </div>
+                                                       
+                                                       <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">
+                                                                 <div class="d-flex justify-content-between">
+                                                                      <div>Extra 1</div>
+                                                                      <div>#1,500</div>
+                                                                 </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                 <div class="d-flex justify-content-between">
+                                                                      <div>Extra 1</div>
+                                                                      <div>#1,500</div>
+                                                                 </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                 <div class="d-flex justify-content-between">
+                                                                      <div>Extra 1</div>
+                                                                      <div>#1,500</div>
+                                                                 </div>
+                                                            </li>
+                                                       </ul>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                            <div><i class="fa-solid fa-calendar-days"></i></div>
+                                                            <div><span> 06/09/2022</span> @ <span> 8:00AM - 10:00AM</span></div>
+                                                       </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                            <div><i class="fa-solid fa-arrows-rotate"></i></div>
+                                                            <div><span> Weekly</span></div>
+                                                       </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                            <div>SUB-TOTAL</div>
+                                                            <div><span> #90,000</span></div>
+                                                       </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                            <div>DISCOUNT</div>
+                                                            <div><span> #70,000</span></div>
+                                                       </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between">
+                                                       </div>
+                                                  </li>
+                                                  <li class="list-group-item">
+                                                       <div class="d-flex justify-content-between fs-3">
+                                                            <div>TOTAL</div>
+                                                            <div><span class="text-primary"> #500,000</span></div>
+                                                       </div>
+                                                  </li>
+                                             </ul>     
+                                        </div>
+                                        <hr class="mt-3">
+                                   </div>
+                                   
+                                   <div>                                        
+                                        <div class="d-grid">
+                                             <button class="btn btn-primary" type="button">Book Now</button>
+                                        </div>
+                                   </div>
+                                        
+                              </div>
+                         </div>
+                         <div class="col-sm-12 col-lg-4 py-4 px-2 d-none d-lg-block">
+                              <div class="border p-5 sticky-top">
+                                   <h4>Booking Summary</h4>
+                                   <div>
+                                        <ul class="list-group list-group-flush">
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                       <div><i class="fa-solid fa-house-chimney"></i><span> 6 Bedrooms</span></div>
+                                                       <div>#1,500</div>
+                                                  </div>
+                                                  
+                                                  <ul class="list-group list-group-flush">
+                                                       <li class="list-group-item">
+                                                            <div class="d-flex justify-content-between">
+                                                                 <div>Extra 1</div>
+                                                                 <div>#1,500</div>
+                                                            </div>
+                                                       </li>
+                                                       <li class="list-group-item">
+                                                            <div class="d-flex justify-content-between">
+                                                                 <div>Extra 1</div>
+                                                                 <div>#1,500</div>
+                                                            </div>
+                                                       </li>
+                                                       <li class="list-group-item">
+                                                            <div class="d-flex justify-content-between">
+                                                                 <div>Extra 1</div>
+                                                                 <div>#1,500</div>
+                                                            </div>
+                                                       </li>
+                                                  </ul>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                       <div><i class="fa-solid fa-calendar-days"></i></div>
+                                                       <div><span> 06/09/2022</span> @ <span> 8:00AM - 10:00AM</span></div>
+                                                  </div>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                       <div><i class="fa-solid fa-arrows-rotate"></i></div>
+                                                       <div><span> Weekly</span></div>
+                                                  </div>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                       <div>SUB-TOTAL</div>
+                                                       <div><span> #90,000</span></div>
+                                                  </div>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                       <div>DISCOUNT</div>
+                                                       <div><span> #70,000</span></div>
+                                                  </div>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between">
+                                                  </div>
+                                             </li>
+                                             <li class="list-group-item">
+                                                  <div class="d-flex justify-content-between fs-3">
+                                                       <div>TOTAL</div>
+                                                       <div><span class="text-primary"> #500,000</span></div>
+                                                  </div>
+                                             </li>
+                                        </ul>     
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div> 
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+     </body>
+</html>
