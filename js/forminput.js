@@ -9,20 +9,78 @@ function bookingSummary(event){
      let expiry_month = expdate[0];
      let expiry_year = expdate[1];
      let tot_price = "500,000";
-     let extra_items = document.querySelectorAll('.extras');
-     let extras = {};
-     for (var extra_item of extra_items){
-          extra_item.addEventListener('click', function(){
-               if(this.checked == true) {
-                    push
-                    extras.name = this.value;
-                    console.log(this.value);
-               } else {
-                    delete extras.this.name;
-                    console.log('you have unchecked the checkbox');
-               }
-          })
-     }
+     let extras_insideOven = document.querySelector('#inside_oven');
+     if (extras_insideOven.checked) {
+          extinsideoven = document.getElementById('inside_oven').value
+     } else {
+          extinsideoven = "0";
+     };
+     let extras_walls = document.querySelector('#walls');
+     if (extras_walls.checked) {
+          extwalls = document.getElementById('walls').value
+     } else {
+          extwalls = "0";
+     };
+     let extras_insideWindow = document.querySelector('#inside_window');
+     if (extras_insideWindow.checked) {
+          extinsideWindow = document.getElementById('inside_window').value
+     } else {
+          extinsideWindow = "0";
+     };
+     let extras_insideTheFridge = document.querySelector('#inside_the_fridge');
+     if (extras_insideTheFridge.checked) {
+          extinsideTheFridge = document.getElementById('inside_the_fridge').value
+     } else {
+          extinsideTheFridge = "0";
+     };
+     let extras_insideCabinets = document.querySelector('#inside_cabinets');
+     if (extras_insideCabinets.checked) {
+          extinsideCabinets = document.getElementById('inside_cabinets').value
+     } else {
+          extinsideCabinets = "0";
+     };
+     let extras_organization = document.querySelector('#organization');
+     if (extras_organization.checked) {
+          extorganization = document.getElementById('organization').value
+     } else {
+          extorganization = "0";
+     };
+     let extras_insideDishwasher = document.querySelector('#inside_dishwasher');
+     if (extras_insideDishwasher.checked) {
+          extinsideDishwasher = document.getElementById('inside_dishwasher').value
+     } else {
+          extinsideDishwasher = "0";
+     };
+     let extras_insideGarage = document.querySelector('#inside_garage');
+     if (extras_insideGarage.checked) {
+          extinsideGarage = document.getElementById('inside_garage').value
+     } else {
+          extinsideGarage = "0";
+     };
+     let extras_microwave = document.querySelector('#microwave');
+     if (extras_microwave.checked) {
+          extmicrowave = document.getElementById('microwave').value
+     } else {
+          extmicrowave = "0";
+     };
+     let extras_laundry = document.querySelector('#laundry');
+     if (extras_laundry.checked) {
+          extlaundry = document.getElementById('laundry').value
+     } else {
+          extlaundry = "0";
+     };
+     let extras_blinds = document.querySelector('#blinds');
+     if (extras_blinds.checked) {
+          extblinds = document.getElementById('blinds').value
+     } else {
+          extblinds = "0";
+     };
+     let extras_insideWasherDryer = document.querySelector('#inside_washer_dryer');
+     if (extras_insideWasherDryer.checked) {
+          extinsideWasherDryer = document.getElementById('inside_washer_dryer').value
+     } else {
+          extinsideWasherDryer = "0";
+     };
      const pay = {
                "service_type": document.getElementById('servicetype').value,
                "home": {
@@ -31,21 +89,20 @@ function bookingSummary(event){
                     "dirtiness": document.getElementById('dirtiness').value,
                     "kitchen": document.getElementById('kitchen_no').value
                },
-               "extras": extras,
-               // {
-               //      "inside_oven": document.getElementById('inside_oven').value,
-               //      "walls": document.getElementById('walls').value,
-               //      "inside_windows": document.getElementById('inside_window').value,
-               //      "inside_the_fridge": document.getElementById('inside_the_fridge').value,
-               //      "inside_cabinets": document.getElementById('inside_cabinets').value,
-               //      "organization": document.getElementById('organization').value,
-               //      "inside_dishwasher": document.getElementById('inside_dishwasher').value,
-               //      "inside_garage": document.getElementById('inside_garage').value,
-               //      "microwave": document.getElementById('microwave').value,
-               //      "laundry": document.getElementById('laundry').value,
-               //      "blinds": document.getElementById('blinds').value,
-               //      "inside_washer": document.getElementById('inside_washer_dryer').value
-               // },
+               "extras": {
+                    "inside_oven": extinsideoven,
+                    "walls": extwalls,
+                    "inside_windows": extinsideWindow,
+                    "inside_the_fridge": extinsideTheFridge,
+                    "inside_cabinets": extinsideCabinets,
+                    "organization": extorganization,
+                    "inside_dishwasher": extinsideDishwasher,
+                    "inside_garage": extinsideGarage,
+                    "microwave": extmicrowave,
+                    "laundry": extlaundry,
+                    "blinds": extblinds,
+                    "inside_washer": extinsideWasherDryer
+               },
                "arrival": {
                     "date": document.getElementById('arrival_date').value,
                     "time": document.getElementById('clean_time').value
@@ -80,8 +137,19 @@ function bookingSummary(event){
                "total_price": tot_price
           }
      
-          
-          console.log(pay);
-          console.log(discount);
-          console.log(extras);
+          console.clear();
+          // console.log(pay);
+          // console.log(discount);
+          console.log(pay.extras.inside_oven);
+          console.log(pay.extras.walls);
+          console.log(pay.extras.inside_windows);
+          console.log(pay.extras.inside_the_fridge);
+          console.log(pay.extras.organization);
+          console.log(pay.extras.inside_cabinets);
+          console.log(pay.extras.inside_dishwasher);
+          console.log(pay.extras.inside_garage);
+          console.log(pay.extras.microwave);
+          console.log(pay.extras.laundry);
+          console.log(pay.extras.blinds);
+          console.log(pay.extras.inside_washer);
 }
