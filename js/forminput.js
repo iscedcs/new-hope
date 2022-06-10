@@ -3,8 +3,8 @@ document.addEventListener('submit', function (event) {
 });
 
 let newHopeForm = document.getElementById('bookingform');
-newHopeForm.addEventListener('input', bookingSummary);
-function bookingSummary(event){
+newHopeForm.addEventListener('input', bookingObject);
+function bookingObject(event){
      let expdate = document.getElementById('expiry_date').value.split("/");
      let expiry_month = expdate[0];
      let expiry_year = expdate[1];
@@ -138,8 +138,6 @@ function bookingSummary(event){
           }
      
           console.clear();
-          // console.log(pay);
-          // console.log(discount);
           console.log(pay.extras.inside_oven);
           console.log(pay.extras.walls);
           console.log(pay.extras.inside_windows);
