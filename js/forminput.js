@@ -3,16 +3,15 @@ function getItemValue(item){
           return document.getElementById(item).value || 0;
      return 0;
 }
+
 let bookNow = document.querySelector("#bookNow");
 bookNow.addEventListener('click', function(event) {
      event.preventDefault();
 })
 
-let newHopeForm = document.getElementById('bookingform');
+let newHopeForm = document.querySelector('form');
+
 newHopeForm.addEventListener('input', bookingObject);
-
-
-
 
 function bookingObject(event){
 
@@ -177,12 +176,41 @@ function bookingObject(event){
                "total_price": tot_price
           };
      const discount = {
-          "code": getItemValue('discount_code'),
-          "total_price": tot_price
+          "code": getItemValue('discount_code')
      }
+     
+     const bedroomNo = document.getElementById('bedroom_no').options[document.getElementById('bedroom_no').selectedIndex].text;
+     document.querySelector('#bedroomNo').innerText = bedroomNo;
+
+     const bedroomPrice = parseInt(getItemValue('bedroom_no')) + parseInt(getItemValue('kitchen_no')) + parseInt(getItemValue('servicetype')) + parseInt(getItemValue('bathroom_no'));
+     document.querySelector('#bedroomPrice').innerText = bedroomPrice;
+
+     const otherRooms = document.querySelector('#otherRooms');
+     const bathroomNo = document.getElementById('bathroom_no').options[document.getElementById('bathroom_no').selectedIndex].text;
+     const bathroomPrice = getItemValue('bathroom_no');
+     const kitchenNo = document.getElementById('kitchen_no').options[document.getElementById('kitchen_no').selectedIndex].text;
+     const kitchenPrice = getItemValue('kitchen_no');
+     otherRooms.innerHTML = `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span> ${bathroomNo}</span></div>
+                         <div><span>$</span><span> ${bathroomPrice}</span></div>
+                    </div>
+               </li>
+     `;
+     otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>
+     `;
+
      
      console.clear();
      console.log(pay);
      console.log(getItemValue('servicetype'));
      console.log(getTotalPrice());
+     console.log(bedroomNo);
 }

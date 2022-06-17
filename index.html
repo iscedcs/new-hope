@@ -42,9 +42,9 @@
                                         <div>
                                              <h5 class="text-primary">CHOOSE SERVICE TYPE</h5>
                                              <select class="form-select" name="servicetype" id="servicetype">
-                                                  <option value="100">Regular</option>
+                                                  <option value="100" selected>Regular</option>
                                                   <option value="120">Deep Clean</option>
-                                                  <option value="150" selected>Move-Out/Move-in</option>
+                                                  <option value="150">Move-Out/Move-in</option>
                                              </select>
                                              <hr class="mt-3">
                                         </div>
@@ -56,8 +56,8 @@
                                                   <div class="row">
                                                        <div class="col-sm">
                                                             <select class="form-select" name="bedroom-no" id="bedroom_no">
-                                                                 <option value="0">1 Bedroom</option>
-                                                                 <option value="50" selected>2 Bedrooms</option>
+                                                                 <option value="0" selected>1 Bedroom</option>
+                                                                 <option value="50">2 Bedrooms</option>
                                                                  <option value="100">3 Bedrooms</option>
                                                                  <option value="150">4 Bedrooms</option>
                                                                  <option value="200">5 Bedrooms</option>
@@ -348,23 +348,17 @@
                                              <hr class="mt-3">
                                         </div>
 
-                                        <div class="d-lg-none">
+                                        <!-- <div class="d-lg-none">
                                              <h4>Booking Summary</h4>
                                              <div>
                                                   <ul class="list-group list-group-flush">
                                                        <li class="list-group-item">
                                                             <div class="d-flex justify-content-between">
-                                                                 <div><i class="fa-solid fa-house-chimney"></i><span> 6 Bedrooms</span></div>
-                                                                 <div>#1,500</div>
+                                                                 <div><i class="fa-solid fa-house-chimney"></i><span id="bedroomNo"> 1 Bedrooms</span></div>
+                                                                 <div id="bedroomPrice">#1,500</div>
                                                             </div>
                                                             
                                                             <ul class="list-group list-group-flush">
-                                                                 <li class="list-group-item">
-                                                                      <div class="d-flex justify-content-between">
-                                                                           <div>Extra 1</div>
-                                                                           <div>#1,500</div>
-                                                                      </div>
-                                                                 </li>
                                                                  <li class="list-group-item">
                                                                       <div class="d-flex justify-content-between">
                                                                            <div>Extra 1</div>
@@ -416,7 +410,7 @@
                                                   </ul>     
                                              </div>
                                              <hr class="mt-3">
-                                        </div>
+                                        </div> -->
                                         
                                         <div>
                                              <div>
@@ -437,27 +431,21 @@
                                              <ul class="list-group list-group-flush">
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between">
-                                                            <div><i class="fa-solid fa-house-chimney"></i><span> 6 Bedrooms</span></div>
-                                                            <div>#1,500</div>
+                                                            <div><i class="fa-solid fa-house-chimney"></i><span id="bedroomNo"> 1 Bedrooms</span></div>
+                                                            <div><span>$</span><span id="bedroomPrice">100</span></div>
                                                        </div>
                                                        
-                                                       <ul class="list-group list-group-flush" id="adding_extras">
+                                                       <ul class="list-group list-group-flush" id="otherRooms">
                                                             <li class="list-group-item">
                                                                  <div class="d-flex justify-content-between">
-                                                                      <div>Extra 1</div>
-                                                                      <div>#1,500</div>
+                                                                      <div><span> 1 Bathroom</span></div>
+                                                                      <div><span>$</span><span> 0</span></div>
                                                                  </div>
                                                             </li>
                                                             <li class="list-group-item">
                                                                  <div class="d-flex justify-content-between">
-                                                                      <div>Extra 1</div>
-                                                                      <div>#1,500</div>
-                                                                 </div>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                 <div class="d-flex justify-content-between">
-                                                                      <div>Extra 1</div>
-                                                                      <div>#1,500</div>
+                                                                      <div><span> 1 Kitchen</span></div>
+                                                                      <div><span>$</span><span> 0</span></div>
                                                                  </div>
                                                             </li>
                                                        </ul>
