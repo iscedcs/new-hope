@@ -47,6 +47,8 @@ function bookingObject(event){
                }
           }
      }
+     const otherRooms = document.querySelector('#otherRooms');
+
      
      let expdate = document.getElementById('expiry_date').value.split("/");
      let expiry_month = expdate[0];
@@ -54,76 +56,161 @@ function bookingObject(event){
      let tot_price = "500,000";
      let extras_insideOven = document.querySelector('#inside_oven');
      if (extras_insideOven.checked) {
-          extinsideoven = document.querySelector('#inside_oven').value
+          extinsideoven = document.querySelector('#inside_oven').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${extinsideoven}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideoven = "0";
      };
      let extras_walls = document.querySelector('#walls');
      if (extras_walls.checked) {
-          extwalls = document.querySelector('#walls').value
+          extwalls = document.querySelector('#walls').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extwalls = "0";
      };
      let extras_insideWindow = document.querySelector('#inside_window');
      if (extras_insideWindow.checked) {
-          extinsideWindow = document.querySelector('#inside_window').value
+          extinsideWindow = document.querySelector('#inside_window').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideWindow = "0";
      };
      let extras_insideTheFridge = document.querySelector('#inside_the_fridge');
      if (extras_insideTheFridge.checked) {
-          extinsideTheFridge = document.querySelector('#inside_the_fridge').value
+          extinsideTheFridge = document.querySelector('#inside_the_fridge').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideTheFridge = "0";
      };
      let extras_insideCabinets = document.querySelector('#inside_cabinets');
      if (extras_insideCabinets.checked) {
-          extinsideCabinets = document.querySelector('#inside_cabinets').value
+          extinsideCabinets = document.querySelector('#inside_cabinets').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideCabinets = "0";
      };
      let extras_organization = document.querySelector('#organization');
      if (extras_organization.checked) {
-          extorganization = document.querySelector('#organization').value
+          extorganization = document.querySelector('#organization').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extorganization = "0";
      };
      let extras_insideDishwasher = document.querySelector('#inside_dishwasher');
      if (extras_insideDishwasher.checked) {
-          extinsideDishwasher = document.querySelector('#inside_dishwasher').value
+          extinsideDishwasher = document.querySelector('#inside_dishwasher').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideDishwasher = "0";
      };
      let extras_insideGarage = document.querySelector('#inside_garage');
      if (extras_insideGarage.checked) {
-          extinsideGarage = document.querySelector('#inside_garage').value
+          extinsideGarage = document.querySelector('#inside_garage').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideGarage = "0";
      };
      let extras_microwave = document.querySelector('#microwave');
      if (extras_microwave.checked) {
-          extmicrowave = document.querySelector('#microwave').value
+          extmicrowave = document.querySelector('#microwave').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extmicrowave = "0";
      };
      let extras_laundry = document.querySelector('#laundry');
      if (extras_laundry.checked) {
-          extlaundry = document.querySelector('#laundry').value
+          extlaundry = document.querySelector('#laundry').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extlaundry = "0";
      };
      let extras_blinds = document.querySelector('#blinds');
      if (extras_blinds.checked) {
-          extblinds = document.querySelector('#blinds').value
+          extblinds = document.querySelector('#blinds').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extblinds = "0";
      };
      let extras_insideWasherDryer = document.querySelector('#inside_washer_dryer');
      if (extras_insideWasherDryer.checked) {
-          extinsideWasherDryer = document.querySelector('#inside_washer_dryer').value
+          extinsideWasherDryer = document.querySelector('#inside_washer_dryer').value,
+          otherRooms.innerHTML += `
+               <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                         <div><span>  ${kitchenNo}</span></div>
+                         <div><span>$</span><span> ${kitchenPrice}</span></div>
+                    </div>
+               </li>`
      } else {
           extinsideWasherDryer = "0";
      };
+     let extraSum = parseInt(extinsideoven) + parseInt(extwalls) + parseInt(extinsideWindow) + parseInt(extinsideTheFridge) + parseInt(extinsideCabinets) + parseInt(extorganization) + parseInt(extinsideDishwasher) + parseInt(extinsideGarage) + parseInt(extmicrowave) + parseInt(extlaundry) + parseInt(extblinds) + parseInt(extinsideWasherDryer);
      const pay = {
                "service_type": getItemValue('servicetype'),
                "home": {
@@ -179,13 +266,14 @@ function bookingObject(event){
           "code": getItemValue('discount_code')
      }
      
+     
      const bedroomNo = document.getElementById('bedroom_no').options[document.getElementById('bedroom_no').selectedIndex].text;
      document.querySelector('#bedroomNo').innerText = bedroomNo;
-
-     const bedroomPrice = parseInt(getItemValue('bedroom_no')) + parseInt(getItemValue('kitchen_no')) + parseInt(getItemValue('servicetype')) + parseInt(getItemValue('bathroom_no'));
+     
+     const dirtiness = document.getElementById('dirtiness').options[document.getElementById('dirtiness').selectedIndex].text;
+     const bedroomPrice = parseInt(getItemValue('bedroom_no')) + parseInt(getItemValue('kitchen_no')) + parseInt(getItemValue('servicetype')) + parseInt(dirtiness) + parseInt(getItemValue('bathroom_no'));
      document.querySelector('#bedroomPrice').innerText = bedroomPrice;
-
-     const otherRooms = document.querySelector('#otherRooms');
+     
      const bathroomNo = document.getElementById('bathroom_no').options[document.getElementById('bathroom_no').selectedIndex].text;
      const bathroomPrice = getItemValue('bathroom_no');
      const kitchenNo = document.getElementById('kitchen_no').options[document.getElementById('kitchen_no').selectedIndex].text;
@@ -206,6 +294,8 @@ function bookingObject(event){
                     </div>
                </li>
      `;
+     
+
 
      
      console.clear();
