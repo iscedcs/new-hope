@@ -214,6 +214,8 @@ function bookingObject(event){
                     </div>
                </li>
      `;
+     const finalPrice = document.querySelector('#total_price');
+     finalPrice.innerText = getTotalPrice();
 
 
      
