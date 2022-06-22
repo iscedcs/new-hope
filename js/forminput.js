@@ -182,7 +182,8 @@ function bookingObject(event){
      const bedroomNo = document.getElementById('bedroom_no').options[document.getElementById('bedroom_no').selectedIndex].text;
      document.querySelector('#bedroomNo').innerText = bedroomNo;
 
-     const bedroomPrice = parseInt(getItemValue('bedroom_no')) + parseInt(getItemValue('kitchen_no')) + parseInt(getItemValue('servicetype')) + parseInt(getItemValue('bathroom_no'));
+     const dirtiness = document.getElementById('dirtiness').options[document.getElementById('dirtiness').selectedIndex].text;
+     const bedroomPrice = parseInt(getItemValue('bedroom_no')) + parseInt(getItemValue('kitchen_no')) + parseInt(getItemValue('servicetype')) + parseInt(getItemValue('bathroom_no')) + parseInt(getItemValue('dirtiness'));
      document.querySelector('#bedroomPrice').innerText = bedroomPrice;
 
      const otherRooms = document.querySelector('#otherRooms');
