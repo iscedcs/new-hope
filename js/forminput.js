@@ -14,44 +14,10 @@ let newHopeForm = document.querySelector('form');
 newHopeForm.addEventListener('input', bookingObject);
 
 function bookingObject(event){
-
-     function getTotalPrice(){
-          let totalPrice = parseInt(getItemValue("servicetype")) + parseInt(getItemValue("bathroom_no")) + parseInt(getItemValue("bedroom_no")) + parseInt(getItemValue("dirtiness")) + parseInt(getItemValue("kitchen_no")) + parseInt(extinsideoven) + parseInt(extwalls) + parseInt(extinsideWindow) + parseInt(extinsideTheFridge) + parseInt(extinsideCabinets) + parseInt(extorganization) + parseInt(extinsideDishwasher) + parseInt(extinsideGarage) + parseInt(extmicrowave) + parseInt(extlaundry) + parseInt(extblinds) + parseInt(extinsideWasherDryer) ;
-          if (document.querySelector('input[name = "how_often"]:checked').value == 1) {
-               totalPrice *= 1
-          } else if (document.querySelector('input[name = "how_often"]:checked').value == 2){
-               totalPrice *= 2
-          } else if (document.querySelector('input[name = "how_often"]:checked').value == 4)(
-               totalPrice *=4
-          );
-          addDiscountCode();
-          return totalPrice;
-     
-          function addDiscountCode() {
-               if (getItemValue('discount_code') === "DISCOUNT5") {
-                    totalPrice = (totalPrice - (totalPrice * 0.05));
-               }
-               else if (getItemValue('discount_code') == "DISCOUNT10") {
-                    totalPrice = (totalPrice - (totalPrice * 0.1));
-               }
-               else if (getItemValue('discount_code') == "DISCOUNT15") {
-                    totalPrice = (totalPrice - (totalPrice * 0.15));
-               }
-               else if (getItemValue('discount_code') == "DISCOUNT20") {
-                    totalPrice = (totalPrice - (totalPrice * 0.2));
-               }
-               else if (getItemValue('discount_code') == "DISCOUNT90") {
-                    totalPrice = (totalPrice - (totalPrice * 0.9));
-               } else {
-                    totalPrice = totalPrice;
-               }
-          }
-     }
      
      let expdate = document.getElementById('expiry_date').value.split("/");
      let expiry_month = expdate[0];
      let expiry_year = expdate[1];
-     let tot_price = "500,000";
      let extras_insideOven = document.querySelector('#inside_oven');
      if (extras_insideOven.checked) {
           extinsideoven = document.querySelector('#inside_oven').value
@@ -124,6 +90,47 @@ function bookingObject(event){
      } else {
           extinsideWasherDryer = "0";
      };
+
+
+     function getTotalPrice(){
+          let totalPrice = parseInt(getItemValue("servicetype")) + parseInt(getItemValue("bathroom_no")) + parseInt(getItemValue("bedroom_no")) + parseInt(getItemValue("dirtiness")) + parseInt(getItemValue("kitchen_no")) + parseInt(extinsideoven) + parseInt(extwalls) + parseInt(extinsideWindow) + parseInt(extinsideTheFridge) + parseInt(extinsideCabinets) + parseInt(extorganization) + parseInt(extinsideDishwasher) + parseInt(extinsideGarage) + parseInt(extmicrowave) + parseInt(extlaundry) + parseInt(extblinds) + parseInt(extinsideWasherDryer) ;
+          if (document.querySelector('input[name = "how_often"]:checked').value == 1) {
+               totalPrice *= 1
+          } else if (document.querySelector('input[name = "how_often"]:checked').value == 2){
+               totalPrice *= 2
+          } else if (document.querySelector('input[name = "how_often"]:checked').value == 4)(
+               totalPrice *=4
+          );
+          addDiscountCode();
+          return totalPrice;
+     
+          function addDiscountCode() {
+               let actualDiscount = 0;
+               if (getItemValue('discount_code') === "DISCOUNT5") {
+                    actualDiscount = totalPrice * 0.05;
+                    totalPrice = (totalPrice - actualDiscount);
+               }
+               else if (getItemValue('discount_code') == "DISCOUNT10") {
+                    actualDiscount = totalPrice * 0.1;
+                    totalPrice = (totalPrice - actualDiscount);
+               }
+               else if (getItemValue('discount_code') == "DISCOUNT15") {
+                    actualDiscount = totalPrice * 0.15;
+                    totalPrice = (totalPrice - actualDiscount);
+               }
+               else if (getItemValue('discount_code') == "DISCOUNT20") {
+                    actualDiscount = totalPrice * 0.2;
+                    totalPrice = (totalPrice - actualDiscount);
+               }
+               else if (getItemValue('discount_code') == "DISCOUNT90") {
+                    actualDiscount = totalPrice * 0.9;
+                    totalPrice = (totalPrice - actualDiscount);
+               } else {
+                    totalPrice = totalPrice;
+               }
+          }
+     }
+     let tot_price = getTotalPrice();
      const pay = {
                "service_type": getItemValue('servicetype'),
                "home": {
@@ -207,6 +214,7 @@ function bookingObject(event){
                     </div>
                </li>
      `;
+
 
      
      console.clear();
