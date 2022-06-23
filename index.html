@@ -8,17 +8,17 @@
           <style>
                input[type="checkbox"]:checked + label{
                     color:white;
-                    background-color: #0D6EFD;
+                    background-color: #021128;
                }
                input[type="radio"]:checked + label{
                     color:white;
-                    background-color: #0D6EFD;
+                    background-color: #021128;
                }
                label{
                     height: 90%;
                     width: 90%;
                     background-color: white;
-                    color: #0D6EFD;
+                    color: #021128;
                }
 
           </style>
@@ -30,17 +30,17 @@
      <body>
           <div>
                <div class="container-fluid">
-                    <form id="bookingform" method="post">
+                    <form id="bookingform" onsubmit="return validateForm()" method="post">
                          <div class="row">
-                              <div class="col-sm-12 col-lg-8 py-4 px-2">
-                                   <div class="border p-5">
+                              <div class="col-sm-12 col-lg-8 py-4 px-2 py-2">
+                                   <div class="border rounded p-2">
                                         <div class="text-center">
-                                             <h2 class="text-primary">Complete Your Booking</h2>
+                                             <h2 class="">Complete Your Booking</h2>
                                              <p>Great! Few details and we can complete your booking.</p>
                                              <hr class="mt-3">
                                         </div>
                                         <div>
-                                             <h5 class="text-primary">CHOOSE SERVICE TYPE</h5>
+                                             <h5 class="">CHOOSE SERVICE TYPE</h5>
                                              <select class="form-select" name="servicetype" id="servicetype">
                                                   <option value="100" selected>Regular</option>
                                                   <option value="120">Deep Clean</option>
@@ -50,11 +50,11 @@
                                         </div>
                                    
                                         <div class="mt-3">
-                                             <h5 class="text-primary">TELL US ABOUT YOUR HOME</h5>
+                                             <h5 class="">TELL US ABOUT YOUR HOME</h5>
                                              
                                              <div>
                                                   <div class="row">
-                                                       <div class="col-sm">
+                                                       <div class="col-sm mt-2">
                                                             <select class="form-select" name="bedroom-no" id="bedroom_no">
                                                                  <option value="0" selected>1 Bedroom</option>
                                                                  <option value="50">2 Bedrooms</option>
@@ -64,7 +64,7 @@
                                                                  <option value="250">6 Bedrooms</option>
                                                             </select>
                                                        </div>
-                                                       <div class="col-sm">
+                                                       <div class="col-sm mt-2">
                                                             <select class="form-select" name="bathroom-no" id="bathroom_no">
                                                                  <option value="0">1 bathroom</option>
                                                                  <option value="20">2 bathrooms</option>
@@ -75,15 +75,15 @@
                                                             </select>
                                                        </div>
                                                   </div>
-                                                  <div class="row pt-2">
-                                                       <div class="col-sm">
+                                                  <div class="row">
+                                                       <div class="col-sm mt-2">
                                                             <select class="form-select" name="kitchen-no" id="kitchen_no">
                                                                  <option value="0">1 Kitchen</option>
                                                                  <option value="20">2 Kitchens</option>
                                                                  <option value="40">3 Kitchens</option>
                                                             </select>
                                                        </div>
-                                                       <div class="col-sm">
+                                                       <div class="col-sm mt-2">
                                                             <select class="form-select" name="dirtiness" id="dirtiness">
                                                                  <option value="0">Slightly Dirty</option>
                                                                  <option value="50">Pretty Dirty</option>
@@ -97,7 +97,7 @@
                                              </div>
                                              
                                              <div class="mt-3">
-                                             <h5 class="text-primary">ADD EXTRAS</h5>
+                                             <h5 class="">ADD EXTRAS</h5>
 
                                                   <div class="row">
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
@@ -179,13 +179,14 @@
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">WHEN WOULD YOU LIKE US TO COME?</h5>
+                                             <h5 id="whenToClean">WHEN WOULD YOU LIKE US TO COME?</h5>
                                              <p>
                                                   Choose the date and arrival window that works for you. If you need a last-minute appointment give us a call at (206) 294-9654. *Please note: Your arrival window is the block of time in which the cleaners may arrive.
                                              </p>
                                              <div class="row">
                                                   <div class="col-sm pb-2">
-                                                       <input class="form-control" type="date" name="arrival_date" id="arrival_date" required>
+                                                       <input class="form-control" type="date" name="arrival_date" id="arrival_date" >
+                                                       <div id="whenToCleanMessage" class="text-danger small ml-3"></div>
                                                   </div>
                                                   <div class="col-sm pb-2">
                                                        <select class="form-select" name="clean_time" id="clean_time">
@@ -199,7 +200,7 @@
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">HOW OFTEN</h5>
+                                             <h5 class="">HOW OFTEN</h5>
                                              <p>
                                                   It's all about matching you with the perfect clean for your home. Scheduling is flexible. Cancel or reschedule anytime. Discounts are applied based on selection.
                                              </p>
@@ -225,23 +226,27 @@
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">WHO YOU ARE</h5>
+                                             <h5 class="contactDetails">WHO YOU ARE</h5>
                                              <p>
                                                   This information will be used to contact you about your service.
                                              </p>
                                              <div>
                                                   <div class="row">
                                                        <div class="col-sm-6">
-                                                            <input class="form-control mb-2" type="text" name="fname" id="fname" placeholder="First Name" required>
+                                                            <input class="form-control mb-2" type="text" name="fname" id="fname" placeholder="First Name" >
+                                                            <div id="contactDetailFname" class="text-danger small ml-3"></div>
                                                        </div>
                                                        <div class="col-sm-6">
-                                                            <input class="form-control mb-2" type="text" name="lname" id="lname" placeholder="Last Name" required>
+                                                            <input class="form-control mb-2" type="text" name="lname" id="lname" placeholder="Last Name" >
+                                                            <div id="contactDetailsLname" class="text-danger small ml-3"></div>
                                                        </div>
                                                        <div class="col-sm-6">
-                                                            <input class="form-control mb-2" type="text" name="email" id="email" placeholder="Email" required>
+                                                            <input class="form-control mb-2" type="text" name="email" id="email" placeholder="Email" >
+                                                            <div id="contactDetailsEmail" class="text-danger small ml-3"></div>
                                                        </div>
                                                        <div class="col-sm-6">
-                                                            <input class="form-control mb-2" type="text" name="phone" id="phone" placeholder="Phone" required>
+                                                            <input class="form-control mb-2" type="text" name="phone" id="phone" placeholder="Phone" >
+                                                            <div id="contactDetailsPhone" class="text-danger small ml-3"></div>
                                                        </div>
                                                   </div>
                                                   <hr class="mt-3">
@@ -249,19 +254,19 @@
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">ADDRESS</h5>
+                                             <h5 class="">ADDRESS</h5>
                                              <p>
                                                   Where would you like us to clean?
                                              </p>
                                              <div class="row">
                                                   <div class="col-sm-9 pb-2">
-                                                       <input class="form-control" type="text" name="address" id="address" placeholder="Address" required>
+                                                       <input class="form-control" type="text" name="address" id="address" placeholder="Address" >
                                                   </div>
                                                   <div class="col-sm-3 pb-2">
                                                        <input class="form-control" type="text" name="apt" id="apt" placeholder="Apt/Suite #">
                                                   </div>
                                                   <div class="col-sm-6 pb-2">
-                                                       <input class="form-control" type="text" name="city" id="city" placeholder="City" required>
+                                                       <input class="form-control" type="text" name="city" id="city" placeholder="City" >
                                                   </div>
                                                   <div class="col-sm-3 pb-2">
                                                        <select class="form-select" name="state" id="state">
@@ -289,20 +294,20 @@
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">DISCOUNT CODE</h5>
+                                             <h5 class="">DISCOUNT CODE</h5>
                                              <div class="row">
-                                                  <div class="col-sm-9">
+                                                  <div class="col-sm-9 pt-2">
                                                        <input class="form-control" type="text" name="discount_code" id="discount_code" placeholder="Discount Code">
                                                   </div>
-                                                  <div class="col-sm-3 d-grid">
-                                                       <button class="btn btn-primary" type="button">Apply</button>
+                                                  <div class="col-sm-3 d-grid pt-2">
+                                                       <button class="btn btn-dark" type="button">Apply</button>
                                                   </div>
                                              </div>
                                              <hr class="mt-3">
                                         </div>
                                    
                                         <div>
-                                             <h5 class="text-primary">Comments and Special Instructions</h5>
+                                             <h5 class="">Comments and Special Instructions</h5>
                                              <div>
                                                   <textarea class="form-control" name="special-instructions" id="special_instructions" placeholder="Special Instructions: Is there anything we should know? Example: the gate code is 1234 or look out for the dog." cols="30" rows="5"></textarea>
                                              </div>
@@ -310,7 +315,7 @@
                                         </div>
                                         
                                         <div>
-                                             <h5 class="text-primary">Add Card Details</h5>
+                                             <h5 class="">Add Card Details</h5>
                                              <div class="pb-2 input-group">
                                                   <span class="input-group-text">Card Number</span>
                                                   <input id="card_number" type="text" aria-label="card_number" class="form-control" placeholder="0000-0000-0000-0000" >
@@ -326,7 +331,7 @@
                                              <hr class="mt-3">
                                         </div>
 
-                                        <!-- <div class="d-lg-none">
+                                        <div class="d-lg-none">
                                              <h4>Booking Summary</h4>
                                              <div>
                                                   <ul class="list-group list-group-flush">
@@ -382,21 +387,21 @@
                                                        <li class="list-group-item">
                                                             <div class="d-flex justify-content-between fs-3">
                                                                  <div>TOTAL</div>
-                                                                 <div><span class="text-primary"> #500,000</span></div>
+                                                                 <div><span class=""> #500,000</span></div>
                                                             </div>
                                                        </li>
                                                   </ul>     
                                              </div>
                                              <hr class="mt-3">
-                                        </div> -->
+                                        </div>
                                         
                                         <div>
                                              <div>
                                                   <p>By clicking the Book Now button you are agreeing to our Terms of Service and Privacy Policy.</p>
-                                                  <input type="checkbox" name="tandc" id="tandc" checked><span> I agree to the Terms of Service and Privacy Policy.</span>
+                                                  <input type="checkbox" name="tandc" id="tandc"><span> I agree to the Terms of Service and Privacy Policy.</span>
                                              </div>                          
                                              <div class="d-grid">
-                                                  <button class="btn btn-primary" id="bookNow" type="submit">Book Now</button>
+                                                  <button class="btn btn-dark" id="bookNow" type="submit">Book Now</button>
                                              </div>
                                         </div>
                                              
@@ -459,7 +464,7 @@
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between fs-3">
                                                             <div>TOTAL</div>
-                                                            <div class="text-primary"><span> $</span><span id="total_price">0</span></div>
+                                                            <div class=""><span> $</span><span id="total_price">0</span></div>
                                                        </div>
                                                   </li>
                                              </ul>     
@@ -476,7 +481,7 @@
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
           <script src="validate.js"></script>
-          <script src="main.js"></script>
-          <script src="js/forminput.js"></script>
+          <!-- <script src="main.js"></script> -->
+          <!-- <script src="js/forminput.js"></script> -->
      </body>
 </html>
