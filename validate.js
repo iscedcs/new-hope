@@ -50,22 +50,13 @@ const cleaveDate = new Cleave("#expiry_date", {
 
 
 
-function validateForm() {
-     let arrivalDate = document.forms["bookingform"]["arrival_date"].value;
-     if (arrivalDate == "") {
-          document.getElementById("whenToClean").scrollIntoView();
-          document.getElementById("arrival_date").focus();
-          document.getElementById("whenToCleanMessage").innerText = "Please select date.";
-          return false;
-     } 
-     // let firstName = document.forms["bookingform"]["fname"].value;
-     // if (firstName == "") {
-     //      document.getElementById("contactDetail").scrollIntoView();
-     //      document.getElementById("fname").focus();
-     //      document.getElementById("contactDetailFname").innerText = "Enter your first name.";
-     //      return false;
-     // }
-     else {
-          return true;
-     }
-}
+// function validateForm() {
+//      let arrivalDate = document.forms["bookingform"]["arrival_date"].value;
+//      if (arrivalDate == "") {
+//           document.getElementById("whenToClean").scrollIntoView();
+//           document.getElementById("arrival_date").focus();
+//           document.getElementById("whenToCleanMessage").innerText = "Please select date.";
+//           return false;
+//      } 
+// }
+

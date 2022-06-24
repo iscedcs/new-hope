@@ -4,7 +4,7 @@
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Document</title>
+          <title>Booking</title>
           <style>
                input[type="checkbox"]:checked + label{
                     color:white;
@@ -20,6 +20,9 @@
                     background-color: white;
                     color: #021128;
                }
+               body{
+                    background-color: #f7f9f8;
+               }
 
           </style>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -30,15 +33,16 @@
      <body>
           <div>
                <div class="container-fluid">
-                    <form id="bookingform" onsubmit="return validateForm()" method="post">
+                    <form id="bookingform" method="post">
                          <div class="row">
-                              <div class="col-sm-12 col-lg-8 py-4 px-2 py-2">
-                                   <div class="border rounded p-2">
+                              <div class="col-sm-12 col-lg-8 px-2">
+                                   <div class="px-2">
                                         <div class="text-center">
                                              <h2 class="">Complete Your Booking</h2>
                                              <p>Great! Few details and we can complete your booking.</p>
                                              <hr class="mt-3">
                                         </div>
+
                                         <div>
                                              <h5 class="">CHOOSE SERVICE TYPE</h5>
                                              <select class="form-select" name="servicetype" id="servicetype">
@@ -67,7 +71,7 @@
                                                        <div class="col-sm mt-2">
                                                             <select class="form-select" name="bathroom-no" id="bathroom_no">
                                                                  <option value="0">1 bathroom</option>
-                                                                 <option value="20">2 bathrooms</option>
+                                                                 <option value="20" selected>2 bathrooms</option>
                                                                  <option value="40">3 bathrooms</option>
                                                                  <option value="60">4 bathrooms</option>
                                                                  <option value="80">5 bathrooms</option>
@@ -79,15 +83,15 @@
                                                        <div class="col-sm mt-2">
                                                             <select class="form-select" name="kitchen-no" id="kitchen_no">
                                                                  <option value="0">1 Kitchen</option>
-                                                                 <option value="20">2 Kitchens</option>
+                                                                 <option value="20" selected>2 Kitchens</option>
                                                                  <option value="40">3 Kitchens</option>
                                                             </select>
                                                        </div>
                                                        <div class="col-sm mt-2">
                                                             <select class="form-select" name="dirtiness" id="dirtiness">
-                                                                 <option value="0">Slightly Dirty</option>
-                                                                 <option value="50">Pretty Dirty</option>
-                                                                 <option value="100">Very Dirty</option>
+                                                                 <option value="1" selected>Slightly Dirty</option>
+                                                                 <option value="1.2">Pretty Dirty</option>
+                                                                 <option value="1.4">Very Dirty</option>
                                                             </select>
                                                        </div>
                                                   </div>
@@ -101,76 +105,76 @@
 
                                                   <div class="row">
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_oven" name="inside_oven" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_oven" name="Oven" value="50">
                                                             <label class="border rounded py-3" for="inside_oven"> Oven<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
                                                             
-                                                            <input class="extras" hidden type="checkbox" id="walls" name="walls" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="walls" name="Walls" value="50">
                                                             <label class="border rounded py-3" for="walls"> Walls<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/86/97e07631962160936413b9eba4a61bfb59e3712a.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/86/97e07631962160936413b9eba4a61bfb59e3712a.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_window" name="inside_window" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_window" name="Window" value="50">
                                                             <label class="border rounded py-3" for="inside_window"> Window<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/84/cec29b3bba1a5c5cf9dab61f678bd8c5e89a3f05.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/84/cec29b3bba1a5c5cf9dab61f678bd8c5e89a3f05.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_the_fridge" name="inside_the_fridge" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_the_fridge" name="Fridge" value="50">
                                                             <label class="border rounded py-3" for="inside_the_fridge"> Fridge<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/87/8bccba665a2f78041dee389ad5ee6838571c319e.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/87/8bccba665a2f78041dee389ad5ee6838571c319e.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_cabinets" name="inside_cabinets" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_cabinets" name="Cabinets" value="50">
                                                             <label class="border rounded py-3" for="inside_cabinets"> Cabinets<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/85/5210f0970d1772f03dc1c29a3709d7eed3c43f6f.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/85/5210f0970d1772f03dc1c29a3709d7eed3c43f6f.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="organization" name="organization" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="organization" name="Organization" value="50">
                                                             <label class="border rounded py-3" for="organization"> Organization<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/88/7ac32951580c89d346f8e976d757aedff5e8d145.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/88/7ac32951580c89d346f8e976d757aedff5e8d145.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_dishwasher" name="inside_dishwasher" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_dishwasher" name="Dishwasher" value="50">
                                                             <label class="border rounded py-3" for="inside_dishwasher"> Dishwasher<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/89/8b94c4f6559cc22536e2bcac20e7f9bf537f3725.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/89/8b94c4f6559cc22536e2bcac20e7f9bf537f3725.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_garage" name="inside_garage" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_garage" name="Garage" value="50">
                                                             <label class="border rounded py-3" for="inside_garage"> Garage<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/91/4010ac71119815eb9ad3c8d6107ccf473b57fc97.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/91/4010ac71119815eb9ad3c8d6107ccf473b57fc97.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="microwave" name="microwave" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="microwave" name="Microwave" value="50">
                                                             <label class="border rounded py-3" for="microwave"> Microwave<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/90/1e0f2757ea854d27fc5e7c3e89e9a26370082658.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/90/1e0f2757ea854d27fc5e7c3e89e9a26370082658.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="laundry" name="laundry" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="laundry" name="Laundry" value="50">
                                                             <label class="border rounded py-3" for="laundry"> Laundry<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/82/a07d3674fdac158d1c2e926af6d63d1031a32698.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="blinds" name="blinds" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="blinds" name="Blinds" value="50">
                                                             <label class="border rounded py-3" for="blinds"> Blinds<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/16/c9a367dc36e7bc7a23c030457722acdae8507b56.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/16/c9a367dc36e7bc7a23c030457722acdae8507b56.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                        <div class="col-md-3 col-sm-4 col-6 text-center">
-                                                            <input class="extras" hidden type="checkbox" id="inside_washer_dryer" name="inside_washer_dryer" value="50">
+                                                            <input class="extras" hidden type="checkbox" id="inside_washer_dryer" name="Washer" value="50">
                                                             <label class="border rounded py-3" for="inside_washer_dryer"> Washer/Dryer<br>
-                                                                 <img src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/48/fc6f534756fdbd652be16b0d121537197046ee9b.png" alt="xxx">
+                                                                 <img class="pb-2"  src="https://launch27.s3.us-west-2.amazonaws.com/live_10891/extras/48/fc6f534756fdbd652be16b0d121537197046ee9b.png" alt="xxx">
                                                             </label>
                                                        </div>
                                                   </div>
@@ -206,7 +210,7 @@
                                              </p>
                                              <div class="row text-center">
                                                   <div class="col-sm pb-2">
-                                                       <input type="radio" id="one-time" name="how_often" value="1" hidden checked>
+                                                       <input type="radio" id="one-time" name="how_often" value="1" hidden>
                                                        <label class="rounded border p-2" for="one-time"> One Time</label><br>
                                                   </div>
                                                   <div class="col-sm pb-2">
@@ -218,7 +222,7 @@
                                                        <label class="rounded border p-2" for="biweekly"> Biweekly</label><br>
                                                   </div>
                                                   <div class="col-sm pb-2">
-                                                       <input type="radio" id="monthly" name="how_often" value="1" hidden>
+                                                       <input type="radio" id="monthly" name="how_often" value="1.2" hidden checked>
                                                        <label class="rounded border p-2" for="monthly"> Monthly</label>
                                                   </div>
                                              </div>
@@ -297,7 +301,7 @@
                                              <h5 class="">DISCOUNT CODE</h5>
                                              <div class="row">
                                                   <div class="col-sm-9 pt-2">
-                                                       <input class="form-control" type="text" name="discount_code" id="discount_code" placeholder="Discount Code">
+                                                       <input class="form-control" type="text" name="discount_code" id="discount_code" placeholder="Discount Code" value="">
                                                   </div>
                                                   <div class="col-sm-3 d-grid pt-2">
                                                        <button class="btn btn-dark" type="button">Apply</button>
@@ -330,105 +334,32 @@
                                              </div>
                                              <hr class="mt-3">
                                         </div>
-
-                                        <div class="d-lg-none">
-                                             <h4>Booking Summary</h4>
-                                             <div>
-                                                  <ul class="list-group list-group-flush">
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                                 <div><i class="fa-solid fa-house-chimney"></i><span id="bedroomNo"> 1 Bedrooms</span></div>
-                                                                 <div id="bedroomPrice">#1,500</div>
-                                                            </div>
-                                                            
-                                                            <ul class="list-group list-group-flush">
-                                                                 <li class="list-group-item">
-                                                                      <div class="d-flex justify-content-between">
-                                                                           <div>Extra 1</div>
-                                                                           <div>#1,500</div>
-                                                                      </div>
-                                                                 </li>
-                                                                 <li class="list-group-item">
-                                                                      <div class="d-flex justify-content-between">
-                                                                           <div>Extra 1</div>
-                                                                           <div>#1,500</div>
-                                                                      </div>
-                                                                 </li>
-                                                            </ul>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                                 <div><i class="fa-solid fa-calendar-days"></i></div>
-                                                                 <div class="text-center"><span> 06/09/2022</span><br>@ <br> <span> 8:00AM - 10:00AM</span></div>
-                                                            </div>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                                 <div><i class="fa-solid fa-arrows-rotate"></i></div>
-                                                                 <div><span> Weekly</span></div>
-                                                            </div>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                                 <div>SUB-TOTAL</div>
-                                                                 <div><span> #90,000</span></div>
-                                                            </div>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                                 <div>DISCOUNT</div>
-                                                                 <div><span> #70,000</span></div>
-                                                            </div>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between">
-                                                            </div>
-                                                       </li>
-                                                       <li class="list-group-item">
-                                                            <div class="d-flex justify-content-between fs-3">
-                                                                 <div>TOTAL</div>
-                                                                 <div><span class=""> #500,000</span></div>
-                                                            </div>
-                                                       </li>
-                                                  </ul>     
-                                             </div>
-                                             <hr class="mt-3">
-                                        </div>
-                                        
-                                        <div>
-                                             <div>
-                                                  <p>By clicking the Book Now button you are agreeing to our Terms of Service and Privacy Policy.</p>
-                                                  <input type="checkbox" name="tandc" id="tandc"><span> I agree to the Terms of Service and Privacy Policy.</span>
-                                             </div>                          
-                                             <div class="d-grid">
-                                                  <button class="btn btn-dark" id="bookNow" type="submit">Book Now</button>
-                                             </div>
-                                        </div>
                                              
                                    </div>
                               </div>
-                              <div class="col-sm-12 col-lg-4 py-4 px-2 d-none d-lg-block">
-                                   <div class="border p-5 sticky-top">
+
+                              <div class="col-sm-12 col-lg-4 d-lg-block">
+                                   <div class="sticky-top">
                                         <h4>Booking Summary</h4>
                                         <div>
                                              <ul class="list-group list-group-flush">
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between">
-                                                            <div><i class="fa-solid fa-house-chimney"></i><span id="bedroomNo"> 1 Bedrooms</span></div>
-                                                            <div><span>$</span><span id="bedroomPrice">100</span></div>
+                                                            <div><i class="fa-solid fa-house-chimney"></i><span id="bedroomNo"></span></div>
+                                                            <div><span>$</span><span id="bedroomPrice"></span></div>
                                                        </div>
                                                        
                                                        <ul class="list-group list-group-flush" id="otherRooms">
                                                             <li class="list-group-item">
                                                                  <div class="d-flex justify-content-between">
-                                                                      <div><span> 1 Bathroom</span></div>
-                                                                      <div><span>$</span><span> 0</span></div>
+                                                                      <div><span id="bathroomNo"></span></div>
+                                                                      <div><span>$</span><span id="bathroomPrice"></span></div>
                                                                  </div>
                                                             </li>
                                                             <li class="list-group-item">
                                                                  <div class="d-flex justify-content-between">
-                                                                      <div><span> 1 Kitchen</span></div>
-                                                                      <div><span>$</span><span> 0</span></div>
+                                                                      <div><span id="kitchenNo"></span></div>
+                                                                      <div><span>$</span><span id="kitchenPrice"></span></div>
                                                                  </div>
                                                             </li>
                                                        </ul>
@@ -436,35 +367,27 @@
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between">
                                                             <div><i class="fa-solid fa-calendar-days"></i></div>
-                                                            <div class="text-center"><span> 06/09/2022</span><br>@ <br> <span> 8:00AM - 10:00AM</span></div>
+                                                            <div class="text-center"><span id="cleanUpDate"></span><span> @ </span><span id="cleanUpTime"></span></div>
                                                        </div>
                                                   </li>
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between">
                                                             <div><i class="fa-solid fa-arrows-rotate"></i></div>
-                                                            <div><span> Weekly</span></div>
+                                                            <div><span id="frequency"></span></div>
                                                        </div>
                                                   </li>
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between">
                                                             <div>SUB-TOTAL</div>
-                                                            <div><span> #90,000</span></div>
+                                                            <div><span>$</span><span id="subTotal"></span></div>
                                                        </div>
                                                   </li>
-                                                  <li class="list-group-item">
-                                                       <div class="d-flex justify-content-between">
-                                                            <div>DISCOUNT</div>
-                                                            <div><span> #70,000</span></div>
-                                                       </div>
-                                                  </li>
-                                                  <li class="list-group-item">
-                                                       <div class="d-flex justify-content-between">
-                                                       </div>
-                                                  </li>
+                                                  <span id="discountSpan"></span>
+                                                  
                                                   <li class="list-group-item">
                                                        <div class="d-flex justify-content-between fs-3">
                                                             <div>TOTAL</div>
-                                                            <div class=""><span> $</span><span id="total_price">0</span></div>
+                                                            <div><span>$</span><span id="total_price"></span></div>
                                                        </div>
                                                   </li>
                                              </ul>     
@@ -474,6 +397,15 @@
                                         </div>
                                    </div>
                               </div>
+                              <div>
+                                   <div>
+                                        <p>By clicking the Book Now button you are agreeing to our Terms of Service and Privacy Policy.</p>
+                                        <input type="checkbox" name="tandc" id="tandc"><span> I agree to the Terms of Service and Privacy Policy.</span>
+                                   </div>                          
+                                   <div class="d-grid">
+                                        <button class="btn btn-dark" id="bookNow" type="submit">Book Now</button>
+                                   </div>
+                              </div>
                          </div>
                     </form>
                </div>
@@ -481,7 +413,7 @@
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
           <script src="validate.js"></script>
-          <!-- <script src="main.js"></script> -->
+          <script src="main.js"></script>
           <!-- <script src="js/forminput.js"></script> -->
      </body>
 </html>
