@@ -1,56 +1,3 @@
-/* Form Object */
-const $form = {
-     "servicetype": '',
-     "home": {
-          "bathroom": '',
-          "bedroom": '',
-          "dirtiness": '',
-          "kitchen": ''
-     },
-     "extras": {
-          "inside_oven": '',
-          "walls": '',
-          "inside_windows": '',
-          "inside_the_fridge": '',
-          "inside_cabinets": '',
-          "organization": '',
-          "inside_dishwasher": '',
-          "inside_garage": '',
-          "microwave": '',
-          "laundry": '',
-          "blinds": '',
-          "inside_washer": ''
-     },
-     "arrival": {
-          "date": '',
-          "time": ''
-     },
-     "recurring": '',
-     "user": {
-          "firstname": '',
-          "lastname": '',
-          "email": '',
-          "phone": ''
-     },
-     "location": {
-          "address": '',
-          "apt": '',
-          "city": '',
-          "state": '',
-          "zip": ''
-     },
-     "discount": '',
-     "comments": '',
-     "card_details": {
-          "card_number": '',
-          "month": '',
-          "year": '',
-          "cvc": ''
-     },
-     "terms_and_conditions": false,
-     "total_price": ''
-};
-
 function getElementValue(elementId){
      const element = document.querySelector('#' + elementId);
 
@@ -97,6 +44,12 @@ function getItemValue(item){
           'value': getElementValue(item)
      }
 }
+$(function() {
+     $('#arrival_date').datetimepiker({
+          minDate:new Date(),
+          disabledates: [new Date()]
+     });
+});
 
 function sumExtras(){
      const extras = ['inside_oven','walls', 'inside_window', 'inside_the_fridge', 'inside_cabinets', 'organization', 'inside_dishwasher', 'inside_garage', 'microwave', 'laundry', 'blinds', 'inside_washer_dryer'];
@@ -114,90 +67,18 @@ function sumExtras(){
      };
 }
 
-function updateExtra() {
-     $('.extraSect input:checkbox').each(function(index, element) {
-          const otherRooms = document.querySelector('#otherRooms');
-
-          let extras_insideOven = document.querySelector('#inside_oven');
-          if (extras_insideOven.checked) {
-               otherRooms.innerHTML += `
-                    <li class="list-group-item">
-                         <div class="d-flex justify-content-between">
-                              <div><span>  ${getItemValue(extra).text}</span></div>
-                              <div><span>$</span><span> ${getItemValue(extra).value}</span></div>
-                         </div>
-                    </li>
-               `;
-          } else {
-               otherRooms.innerHTML = ``;
-          };
-          let extras_walls = document.querySelector('#walls');
-          if (extras_walls.checked) {
-               extwalls = document.querySelector('#walls').value
-          } else {
-               extwalls = "0";
-          };
-          let extras_insideWindow = document.querySelector('#inside_window');
-          if (extras_insideWindow.checked) {
-               extinsideWindow = document.querySelector('#inside_window').value
-          } else {
-               extinsideWindow = "0";
-          };
-          let extras_insideTheFridge = document.querySelector('#inside_the_fridge');
-          if (extras_insideTheFridge.checked) {
-               extinsideTheFridge = document.querySelector('#inside_the_fridge').value
-          } else {
-               extinsideTheFridge = "0";
-          };
-          let extras_insideCabinets = document.querySelector('#inside_cabinets');
-          if (extras_insideCabinets.checked) {
-               extinsideCabinets = document.querySelector('#inside_cabinets').value
-          } else {
-               extinsideCabinets = "0";
-          };
-          let extras_organization = document.querySelector('#organization');
-          if (extras_organization.checked) {
-               extorganization = document.querySelector('#organization').value
-          } else {
-               extorganization = "0";
-          };
-          let extras_insideDishwasher = document.querySelector('#inside_dishwasher');
-          if (extras_insideDishwasher.checked) {
-               extinsideDishwasher = document.querySelector('#inside_dishwasher').value
-          } else {
-               extinsideDishwasher = "0";
-          };
-          let extras_insideGarage = document.querySelector('#inside_garage');
-          if (extras_insideGarage.checked) {
-               extinsideGarage = document.querySelector('#inside_garage').value
-          } else {
-               extinsideGarage = "0";
-          };
-          let extras_microwave = document.querySelector('#microwave');
-          if (extras_microwave.checked) {
-               extmicrowave = document.querySelector('#microwave').value
-          } else {
-               extmicrowave = "0";
-          };
-          let extras_laundry = document.querySelector('#laundry');
-          if (extras_laundry.checked) {
-               extlaundry = document.querySelector('#laundry').value
-          } else {
-               extlaundry = "0";
-          };
-          let extras_blinds = document.querySelector('#blinds');
-          if (extras_blinds.checked) {
-               extblinds = document.querySelector('#blinds').value
-          } else {
-               extblinds = "0";
-          };
-          let extras_insideWasherDryer = document.querySelector('#inside_washer_dryer');
-          if (extras_insideWasherDryer.checked) {
-               extinsideWasherDryer = document.querySelector('#inside_washer_dryer').value
-          } else {
-               extinsideWasherDryer = "0";
-          };
-     });
+function updateExtra(event) {
+     event.preventDefault();
+     const element = event.target;
+     const other = document.querySelector(`#otherRooms-${element.id}`);
+     if(element.checked == true){
+          other.children[0].children[1].querySelector('.value').innerHTML = element.value;
+          other.classList.remove('d-none');
+          
+     }else{
+          other.classList.remove('d-none');
+          other.classList.add('d-none');
+     }
 }
 
 function getCurrentDate() {
@@ -210,12 +91,20 @@ function setText(elementId, value){
      document.querySelector('#' + elementId).innerText = value;
 }
 
+function getCurrentDate() {
+     const tempDate = new Date(Date.now());
+     const currentDate = tempDate.toISOString().split('T')[0];
+     return currentDate;
+}
+
+
+
 /*   Update summary   */
 let bookForm = document.querySelector('form');
 bookForm.addEventListener('input', updateSummary);
 function updateSummary(event){
      
-
+     let today = getCurrentDate();
      let bedroom = parseInt(getItemValue('bedroom').value);
      let servicetype = parseInt(getItemValue('servicetype').value);
      let dirtiness = parseFloat(getItemValue('dirtiness').value);
@@ -240,11 +129,43 @@ function updateSummary(event){
 
      setText('subTotal', subTotal);
      setText('totalPrice', totalPrice);
-
-
-
 }
 
-/* Service Type */
 
-/* About your home */
+function submitForm(event) {
+     event.preventDefault();
+     /* Form Object */
+     const $form = {
+          "servicetype": getItemValue('servicetype'),
+          "home": {
+               "bathroom": getItemValue('bathroom'),
+               "bedroom": getItemValue('bedroom'),
+               "dirtiness": getItemValue('dirtiness'),
+               "kitchen": getItemValue('kitchen')
+          },
+          "extras": sumExtras().extras,
+          "arrival": {
+               "date": getItemValue('arrival_date'),
+               "time": getItemValue('clean_time')
+          },
+          // "recurring": getItemValue('bathroom'),
+          "user": {
+               "firstname": getItemValue('fname'),
+               "lastname": getItemValue('lname'),
+               "email": getItemValue('email'),
+               "phone": getItemValue('phone')
+          },
+          "location": {
+               "address": getItemValue('address'),
+               "apt": getItemValue('apt'),
+               "city": getItemValue('city'),
+               "state": getItemValue('state'),
+               "zip": getItemValue('zip')
+          },
+          "discount": getItemValue('discount_code'),
+          "comments": getItemValue('special_instructions'),
+          "terms_and_conditions": getItemValue('tandc')
+     };
+     
+     console.log($form);
+}
