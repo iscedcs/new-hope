@@ -1,9 +1,13 @@
+window.onload = onLoadBookingSummary;
+
 function getSelectOption(item){
   return document.getElementById(item).options[document.getElementById(item).selectedIndex].text;
 }
+
 function getSelectValue(item){
   return document.getElementById(item).options[document.getElementById(item).selectedIndex].value;
 }
+
 function getItemValue(item){
   return document.getElementById(item).value;
 }
@@ -13,16 +17,21 @@ function setText(name, value){
 function setValue(name, value){
   document.getElementById(name).value = value;
 }
-function setFreqVal() {
+function setFreqText() {
   if (document.querySelector('input[name="how_often"]:checked').value == 1) {
-    freqVal = "One Time";
+    freqText = "One Time";
   } else if (document.querySelector('input[name="how_often"]:checked').value == 1.2) {
-    freqVal = "Monthly";
+    freqText = "Monthly";
   } else if (document.querySelector('input[name="how_often"]:checked').value == 2) {
-    freqVal = "BiWeekly";
+    freqText = "BiWeekly";
   } else {
-    freqVal = "Weekly";
-  } return freqVal;
+    freqText = "Weekly";
+  }
+  return freqText;
+}
+function setFreqVal(){
+  const freqVal = parseFloat(document.querySelector('input[name="how_often"]:checked').value);
+  return freqVal;
 }
 function getExtDet() {
   const otherRooms = document.querySelector('#otherRooms');
@@ -37,8 +46,9 @@ function getExtDet() {
             </div>
         </li>
       `;
+    } else if (extDetails[i].checked == true){
+      otherRooms.innerHTML += ``;
     }
-
   }
 }
 function getExtTot() {
@@ -61,8 +71,11 @@ function getInitCost(){
 }
 function getSubTotal() {
   let subTotal = 0;
+  subTotal += parseInt(getItemValue('bathroom_no'));
+  subTotal += parseInt(getItemValue('kitchen_no'));
   subTotal += getInitCost();
   subTotal += getExtTot();
+  subTotal *= setFreqVal();
   return subTotal;
 }
 function getDiscountPrice(){
@@ -99,13 +112,24 @@ function showDiscount() {
     discountSpan.innerHTML = '';
   }
 }
-
-function onLoadBookingSummary() {
-  getInitCost();
+function calTotal(){
+  const netTotal = getSubTotal() - getDiscountPrice();
+  return netTotal;
+}
+function getCurrentDate() {
   const tempDate = new Date(Date.now());
   const currentDate = tempDate.toISOString().split('T')[0];
+  return currentDate;
+}
+function getExtDetupdate(){
+  const otherRooms = document.querySelector('#otherRooms');
+  
+}
+function onLoadBookingSummary() {
+  getInitCost();
+  const currentDate = getCurrentDate();
   setValue('arrival_date', currentDate);
-  setFreqVal();
+  setFreqText();
   setText('bedroomNo', getSelectOption("bedroom_no"));
   setText('bedroomPrice', getInitCost());
   setText('bathroomNo',getSelectOption('bathroom_no'));
@@ -115,8 +139,32 @@ function onLoadBookingSummary() {
   getExtDet();
   setText('cleanUpDate', getItemValue('arrival_date'));
   setText('cleanUpTime', getItemValue('clean_time'));
-  setText('frequency', freqVal);
+  setText('frequency', freqText);
   setText('subTotal', getSubTotal())
   showDiscount();
+  calTotal();
+  setText('total_price', calTotal());
 };
-window.onload = onLoadBookingSummary;
+
+let fillEvent = document.querySelector('form');
+fillEvent.addEventListener('input', bookingObject);
+function bookingObject(event){
+  getInitCost();
+  const currentDate = getCurrentDate();
+  setValue('arrival_date', currentDate);
+  setFreqText();
+  setText('bedroomNo', getSelectOption("bedroom_no"));
+  setText('bedroomPrice', getInitCost());
+  setText('bathroomNo',getSelectOption('bathroom_no'));
+  setText('bathroomPrice', getItemValue('bathroom_no'));
+  setText('kitchenNo',getSelectOption('kitchen_no'));
+  setText('kitchenPrice', getItemValue('kitchen_no'));
+  getExtDet();
+  setText('cleanUpDate', getItemValue('arrival_date'));
+  setText('cleanUpTime', getItemValue('clean_time'));
+  setText('frequency', freqText);
+  setText('subTotal', getSubTotal())
+  showDiscount();
+  calTotal();
+  setText('total_price', calTotal());
+}
