@@ -163,7 +163,7 @@ function submitForm(event) {
                "zip": getItemValue('zip')
           },
           "discount": getItemValue('discount_code'),
-          "comments": getItemValue('special_instructions'),
+          "comments": getItemValue('special-instructions'),
           "terms_and_conditions": getItemValue('tandc')
      };
      
